@@ -49,7 +49,11 @@ cells = [
         "metadata": {},
         "outputs": [],
         "source": [
-            "df = pd.read_csv('loan_prediction.csv')\n",
+            "try:\n",
+            "    df = pd.read_csv('loan_prediction.csv')\n",
+            "except FileNotFoundError:\n",
+            "    # Fallback for Google Colab\n",
+            "    df = pd.read_csv('https://raw.githubusercontent.com/vignesh-1213/Loan-Approval-Prediction/main/loan_prediction.csv')\n",
             "df.head()"
         ]
     },
